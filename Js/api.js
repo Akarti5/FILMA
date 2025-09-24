@@ -1,17 +1,33 @@
 
 
 searchBtn.onclick = ()=>{
-
-    
     let movieName = movieSearch.value;
+   
 
-    
-    result.className = (movieName != '') ? 'results-section-show' : 'results-section';
-    
+   
+
+    // result.style.display = (movieName != '') ? 'block' : 'none';
+
     const url = `https://www.omdbapi.com/?apikey=22eb955&t=${movieName}`;
     fetch(url)
     .then(Response => Response.json())
     .then(data =>{
+        
+        resultSec.style.display = 'block';
+        spinner.style.display = 'block';
+        let res = `${data.Response}`;
+
+       
+
+        result.style.display = (res == 'True') ? 'block' : 'none';
+        spinner.style.display = (res == 'True') ? 'none' : 'block';
+        noResult.style.display = (res == 'True') ? 'none' : 'block';
+
+        
+
+
+
+
         movieTitle.textContent = `${data.Title}`;
         year.textContent = `${data.Year}`;
         score.textContent = `${data.Ratings[0].Value}`;
@@ -41,4 +57,5 @@ searchBtn.onclick = ()=>{
 
 });
 };
+
 
