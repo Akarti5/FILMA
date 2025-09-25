@@ -153,11 +153,7 @@ body {
   margin: 0 auto;
   display: none;
 }
-.results-section-show {
-  max-width: 900px;
-  margin: 0 auto;
-  display: block;
-}
+
 
 /* Loading Spinner */
 .loading-spinner {
